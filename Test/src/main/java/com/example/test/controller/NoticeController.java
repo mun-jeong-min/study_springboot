@@ -1,13 +1,15 @@
 package com.example.test.controller;
 
 import com.example.test.dto.CreateNoticeRequest;
+import com.example.test.entity.Notice;
 import com.example.test.service.NoticeService;
-import lombok.Getter;
 import lombok.RequiredArgsConstructor;
+import lombok.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -18,13 +20,14 @@ public class NoticeController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/post")
-    public void create(@RequestBody CreateNoticeRequest noticeRequest) {
-        noticeService.create(noticeRequest);
+    public String create(@RequestBody @Valid CreateNoticeRequest noticeRequest) {
+        return noticeService.create(noticeRequest);
     }
 
     @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/get")
-    public void read() {
-        noticeService.read();
+    public List<Notice> read() {
+
+        return noticeService.read();
     }
 }

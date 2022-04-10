@@ -7,23 +7,27 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
-
 public class NoticeService {
 
     private final NoticeRepository noticeRepository;
 
+    public List<Notice> read(){
+        return noticeRepository.findAll();
+    }
+
+
     @Transactional
-    public void create(CreateNoticeRequest request) {
+    public String create(CreateNoticeRequest request) {
             noticeRepository.save(
                     Notice.builder()
                             .title(request.getTitle())
                             .content(request.getContent())
                             .build());
-    }
 
-    public void read() {
-        noticeRepository.findAll();
+            return "create success";
     }
 }

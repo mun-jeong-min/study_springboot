@@ -1,13 +1,15 @@
 package com.example.test.dto;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Getter
 @AllArgsConstructor
+@Builder
+@NoArgsConstructor
+
 public class CreateNoticeRequest {
 
     private String title;
+
     private String content;
 }
