@@ -19,8 +19,6 @@ public class NoticeService {
         return noticeRepository.findAll();
     }
 
-
-    @Transactional
     public String create(CreateNoticeRequest request) {
             noticeRepository.save(
                     Notice.builder()

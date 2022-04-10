@@ -4,10 +4,12 @@ import lombok.*;
 
 import javax.persistence.*;
 
-
+@Builder
 @Entity
 @Getter
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@NoArgsConstructor
+@AllArgsConstructor
+
 public class Notice {
 
     @Id
@@ -21,8 +23,8 @@ public class Notice {
     private String content;
 
     @Builder
-    public Notice(String title, String content) {
-        this.title = title;
-        this.content = content;
+    public Notice (String title,String content){
+        this.title=title;
+        this.content=content;
     }
 }
