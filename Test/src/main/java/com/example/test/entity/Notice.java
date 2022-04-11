@@ -7,7 +7,7 @@ import javax.persistence.*;
 @Builder
 @Entity
 @Getter
-@NoArgsConstructor
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 
 public class Notice {
