@@ -30,12 +30,12 @@ public class NoticeController {
 
         return noticeService.read();
     }
-/*
+
     @PutMapping("/put/{id}")
     public String update(@PathVariable("id") Long id, @RequestBody @Valid UpdateNoticeRequest request){
         return noticeService.update(id,request);
     }
-*/
+
     @DeleteMapping("/delete/{i}")
     public String delete(@PathVariable("i") Long id) {
         return noticeService.delete(id);

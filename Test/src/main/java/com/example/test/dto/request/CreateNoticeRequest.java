@@ -6,7 +6,6 @@ import lombok.*;
 @AllArgsConstructor
 @Builder
 @NoArgsConstructor
-
 public class CreateNoticeRequest {
 
     private String title;

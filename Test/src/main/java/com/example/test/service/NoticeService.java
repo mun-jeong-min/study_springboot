@@ -30,19 +30,17 @@ public class NoticeService {
 
             return "create success";
     }
-/*
+
     @Transactional
     public String update(Long id, UpdateNoticeRequest request) {
-        noticeRepository.save(
-                Notice.builder()
-                        .title(request.getTitle())
-                        .content(request.getContent())
-                        .build()
-        );
+        Optional<Notice> notice = noticeRepository.findById(id);
 
-        return "update infomation";
+        notice.get().setTitle(request.getTitle());
+        notice.get().setContent(request.getContent());
+
+        return "update success";
     }
-*/
+
     public String delete(Long id) {
         noticeRepository.deleteById(id);
 
