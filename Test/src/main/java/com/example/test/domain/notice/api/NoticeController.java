@@ -30,7 +30,7 @@ public class NoticeController {
 
         return noticeService.read();
     }
-
+    
     @PutMapping("/put/{id}")
     public String update(@PathVariable("id") Long id, @RequestBody @Valid UpdateNoticeRequest request){
         return noticeService.update(id,request);
