@@ -1,4 +1,4 @@
-package com.example.test.dto.request;
+package com.example.test.controller.dto.request;
 
 import lombok.*;
 

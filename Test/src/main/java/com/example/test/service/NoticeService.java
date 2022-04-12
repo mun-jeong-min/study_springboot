@@ -1,9 +1,9 @@
 package com.example.test.service;
 
-import com.example.test.dto.request.CreateNoticeRequest;
-import com.example.test.dto.request.UpdateNoticeRequest;
-import com.example.test.entity.Notice;
-import com.example.test.repository.NoticeRepository;
+import com.example.test.controller.dto.request.CreateNoticeRequest;
+import com.example.test.controller.dto.request.UpdateNoticeRequest;
+import com.example.test.domain.Notice;
+import com.example.test.domain.repository.NoticeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

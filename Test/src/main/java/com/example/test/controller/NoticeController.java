@@ -1,8 +1,8 @@
 package com.example.test.controller;
 
-import com.example.test.dto.request.CreateNoticeRequest;
-import com.example.test.dto.request.UpdateNoticeRequest;
-import com.example.test.entity.Notice;
+import com.example.test.controller.dto.request.CreateNoticeRequest;
+import com.example.test.controller.dto.request.UpdateNoticeRequest;
+import com.example.test.domain.Notice;
 import com.example.test.service.NoticeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
