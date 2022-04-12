@@ -1,9 +1,9 @@
-package com.example.test.controller;
+package com.example.test.domain.notice.api;
 
-import com.example.test.controller.dto.request.CreateNoticeRequest;
-import com.example.test.controller.dto.request.UpdateNoticeRequest;
-import com.example.test.domain.Notice;
-import com.example.test.service.NoticeServicelmpl;
+import com.example.test.domain.notice.application.NoticeServicelmpl;
+import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
+import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
+import com.example.test.domain.notice.domain.Notice;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

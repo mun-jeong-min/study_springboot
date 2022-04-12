@@ -1,9 +1,10 @@
-package com.example.test.service;
+package com.example.test.domain.notice.application;
 
-import com.example.test.controller.dto.request.CreateNoticeRequest;
-import com.example.test.controller.dto.request.UpdateNoticeRequest;
-import com.example.test.domain.Notice;
-import com.example.test.domain.repository.NoticeRepository;
+import com.example.test.domain.notice.application.NoticeService;
+import com.example.test.domain.notice.domain.Notice;
+import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
+import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
+import com.example.test.domain.notice.dao.NoticeRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
