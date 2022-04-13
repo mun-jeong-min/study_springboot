@@ -5,7 +5,6 @@ import lombok.*;
 import javax.persistence.*;
 
 @Entity
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -18,14 +17,14 @@ public class User {
     private Long id;
 
     @Column
-    private String userId;
+    private String accountId;
 
     @Column
     private String password;
 
     @Builder
-    public User(String userId, String password) {
-        this.userId = userId;
+    public User(String accountId, String password) {
+        this.accountId = accountId;
         this.password = password;
     }
 }
