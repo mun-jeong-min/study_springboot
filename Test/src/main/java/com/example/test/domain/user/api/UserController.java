@@ -16,7 +16,7 @@ public class UserController {
     private final UserServicelmpl userServicelmpl;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @GetMapping("/login")
+    @PostMapping("/login")
     public String login (@RequestBody @Valid CreateUserRequest request) {
         return userServicelmpl.createUser(request);
     }
