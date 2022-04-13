@@ -1,10 +1,12 @@
 package com.example.test.domain.user.application;
 
 import com.example.test.domain.user.dto.request.CreateUserRequest;
-import org.springframework.web.bind.annotation.RequestBody;
-
-import javax.validation.Valid;
+import com.example.test.domain.user.dto.request.SigninRequest;
+import org.springframework.transaction.annotation.Transactional;
 
 public interface UserService {
-    String createUser(CreateUserRequest request);
+    String signup(CreateUserRequest request);
+
+    @Transactional
+    String signin(SigninRequest request);
 }
