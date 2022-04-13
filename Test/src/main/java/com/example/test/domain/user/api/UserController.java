@@ -2,6 +2,7 @@ package com.example.test.domain.user.api;
 
 import com.example.test.domain.user.application.UserServicelmpl;
 import com.example.test.domain.user.dto.request.CreateUserRequest;
+import com.example.test.domain.user.dto.request.SigninRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -16,8 +17,13 @@ public class UserController {
     private final UserServicelmpl userServicelmpl;
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/login")
-    public String login (@RequestBody @Valid CreateUserRequest request) {
-        return userServicelmpl.createUser(request);
+    @PostMapping("/signup")
+    public String login(@RequestBody @Valid CreateUserRequest request) {
+        return userServicelmpl.signup(request);
+    }
+
+    @PostMapping("/signin")
+    public String signin(@RequestBody @Valid SigninRequest request) {
+        return userServicelmpl.signin(request);
     }
 }
