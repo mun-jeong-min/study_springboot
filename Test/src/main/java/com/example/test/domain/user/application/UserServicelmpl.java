@@ -32,7 +32,7 @@ public class UserServicelmpl implements UserService {
     @Transactional
     public String signin(SigninRequest request) {
         Optional<User> user = userRepository.findByAccountId(request.getAccountId());
-
+        
         return "login success!!!";
     }
 }
