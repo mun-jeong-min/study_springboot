@@ -1,5 +1,6 @@
 package com.example.test.global.security.auth;
 
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -7,6 +8,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.Collections;
 
+@Getter
 @RequiredArgsConstructor
 public class AuthDetails implements UserDetails {
 
@@ -24,7 +26,7 @@ public class AuthDetails implements UserDetails {
 
     @Override
     public String getUsername() {
-        return accountId;
+        return this.accountId;
     }
 
     @Override

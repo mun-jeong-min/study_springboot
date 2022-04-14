@@ -7,6 +7,5 @@ import org.springframework.transaction.annotation.Transactional;
 public interface UserService {
     String signup(CreateUserRequest request);
 
-    @Transactional
-    String signin(SigninRequest request);
+    String login(SigninRequest request);
 }

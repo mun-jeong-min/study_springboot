@@ -15,7 +15,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @RequiredArgsConstructor
 @Configuration
 @EnableWebSecurity
-
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
@@ -41,7 +40,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.DELETE, "/crud/delete/{id}").permitAll()
 
                 .antMatchers(HttpMethod.POST, "/user/signup").permitAll()
-                .antMatchers(HttpMethod.POST, "/user/signin").permitAll()
+                .antMatchers(HttpMethod.POST, "/user/login").permitAll()
 
                 .anyRequest().authenticated();
 

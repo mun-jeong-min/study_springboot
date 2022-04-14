@@ -1,6 +1,7 @@
 package com.example.test.domain.user.api;
 
-import com.example.test.domain.user.application.UserServicelmpl;
+import com.example.test.domain.user.application.UserService;
+import com.example.test.domain.user.application.UserServiceImpl;
 import com.example.test.domain.user.dto.request.CreateUserRequest;
 import com.example.test.domain.user.dto.request.SigninRequest;
 import lombok.RequiredArgsConstructor;
@@ -14,16 +15,16 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserServicelmpl userServicelmpl;
+    private final UserServiceImpl userService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
-    public String login(@RequestBody @Valid CreateUserRequest request) {
-        return userServicelmpl.signup(request);
+    public String signup(@RequestBody @Valid CreateUserRequest request) {
+        return userService.signup(request);
     }
 
-    @PostMapping("/signin")
-    public String signin(@RequestBody @Valid SigninRequest request) {
-        return userServicelmpl.signin(request);
+    @PostMapping("/login")
+    public String login(@RequestBody @Valid SigninRequest request) {
+        return userService.login(request);
     }
 }
