@@ -1,6 +1,5 @@
 package com.example.test.domain.notice.application;
 
-import com.example.test.domain.notice.application.NoticeService;
 import com.example.test.domain.notice.domain.Notice;
 import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
 import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;

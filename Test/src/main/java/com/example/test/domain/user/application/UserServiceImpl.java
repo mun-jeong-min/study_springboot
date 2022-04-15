@@ -39,6 +39,4 @@ public class UserServiceImpl implements UserService {
 
         return "success!";
     }
-
-
 }

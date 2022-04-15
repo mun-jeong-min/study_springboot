@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: ${DB_URL}
+    url: jdbc:mysql://mysql-test:3306/springtest?serverTimezone=UTC&characterEncoding=UTF-8
     username: ${DB_USERNAME}
     password: ${DB_PWD}
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -11,8 +11,8 @@ spring:
       ddl-auto: update
 
 jwt:
-  secretKey: ${JWT_SECRET}
-  accessExp: ${JWT_ACCESS_EXP}
-  refreshExp: ${JWT_REFRESH_EXP}
-  header: ${JWT_HEADER}
-  prefix: ${JWT_PREFIX}
+ secretKey: ${JWT_SECRET}
+ accessExp: ${JWT_ACCESS_EXP}
+ refreshExp: ${JWT_REFRESH_EXP}
+ header: ${JWT_HEADER}
+ prefix: ${JWT_PREFIX}
