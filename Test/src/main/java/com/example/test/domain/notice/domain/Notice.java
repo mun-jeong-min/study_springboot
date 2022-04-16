@@ -4,11 +4,9 @@ import lombok.*;
 
 import javax.persistence.*;
 
-@Builder
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 @Setter
 
 public class Notice {
@@ -17,10 +15,10 @@ public class Notice {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column
+    @Column(length = 20,nullable = false)
     private String title;
 
-    @Column
+    @Column(nullable = false)
     private String content;
 
     @Builder

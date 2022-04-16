@@ -8,17 +8,16 @@ import javax.persistence.*;
 @Getter
 @Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@AllArgsConstructor
 public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column()
+    @Column(length = 14, nullable = false)
     private String accountId;
 
-    @Column()
+    @Column(length = 20, nullable = false)
     private String password;
 
     @Builder
