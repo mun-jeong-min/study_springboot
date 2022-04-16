@@ -1,8 +1,10 @@
 package com.example.test.domain.user.domain;
 
+import com.example.test.global.enums.Authority;
 import lombok.*;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
@@ -20,9 +22,14 @@ public class User {
     @Column(length = 20, nullable = false)
     private String password;
 
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    private Authority authority;
+
     @Builder
-    public User(String accountId, String password) {
+    public User(String accountId, String password,Authority authority) {
         this.accountId = accountId;
         this.password = password;
+        this.authority=authority;
     }
 }
