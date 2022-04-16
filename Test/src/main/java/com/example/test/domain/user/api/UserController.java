@@ -23,6 +23,7 @@ public class UserController {
         return userService.signup(request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PostMapping("/login")
     public String login(@RequestBody @Valid SigninRequest request) {
         return userService.login(request);

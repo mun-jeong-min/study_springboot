@@ -1,9 +1,10 @@
 package com.example.test.domain.notice.api;
 
 import com.example.test.domain.notice.application.NoticeServicelmpl;
+import com.example.test.domain.notice.domain.Notice;
 import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
 import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
-import com.example.test.domain.notice.domain.Notice;
+import com.example.test.domain.notice.dto.response.NoticeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -26,15 +27,16 @@ public class NoticeController {
 
     @GetMapping("/get")
     public List<Notice> read() {
-
         return noticeService.read();
     }
-    
+
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/put/{id}")
-    public String update(@PathVariable("id") Long id, @RequestBody @Valid UpdateNoticeRequest request){
-        return noticeService.update(id,request);
+    public String update(@PathVariable("id") Long id, @RequestBody @Valid UpdateNoticeRequest request) {
+        return noticeService.update(id, request);
     }
 
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/delete/{i}")
     public String delete(@PathVariable("i") Long id) {
         return noticeService.delete(id);
