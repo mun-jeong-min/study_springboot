@@ -21,7 +21,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String signup(CreateUserRequest request) {
 
-        User user = userRepository.findByAccountId(request.getAccountId())
+        userRepository.findByAccountId(request.getAccountId())
                 .orElseThrow(() -> UserExistsException.EXCEPTION);
 
         userRepository.save(User.builder()
