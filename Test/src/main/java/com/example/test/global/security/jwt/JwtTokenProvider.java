@@ -2,7 +2,6 @@ package com.example.test.global.security.jwt;
 
 import com.example.test.global.security.auth.AuthDetailsService;
 import io.jsonwebtoken.Claims;
-import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Component;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 
 @Component
@@ -44,12 +44,24 @@ public class JwtTokenProvider {
 
     // 토큰을 복호화 후 token정보들을 리턴
     private Claims getTokenBody(String token) {
-            return Jwts.parser().setSigningKey(jwtproperties.getSecretKey())
-                    .parseClaimsJws(token).getBody();
+        return Jwts.parser().setSigningKey(jwtproperties.getSecretKey())
+                .parseClaimsJws(token).getBody();
     }
 
     // getTokenBody를 이용해서 token의 subject(제목)을 받아옴
     private String getTokenSubject(String token) {
         return getTokenBody(token).getSubject();
+    }
+
+    //request의 header에서 token 파싱
+    public String resolveToken(HttpServletRequest request) {
+        String bearer = request.getHeader(jwtproperties.getHeader());
+        return parseToken(bearer);
+    }
+
+    public String parseToken(String bearerToken) {
+        if (bearerToken != null && bearerToken.startsWith(jwtproperties.getPrefix()))
+            return bearerToken.replace(jwtproperties.getPrefix(), "");
+        return null;
     }
 }
