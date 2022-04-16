@@ -8,7 +8,10 @@ import lombok.Getter;
 @AllArgsConstructor
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ErrorCode {
-    USER_NOT_FOUND(404,"USER-404-1","User NotFound");
+
+    USER_NOT_FOUND(404,"USER-404-1","User NotFound"),
+
+    USER_EXIST(409,"USER-409-1","User Exist");
 
     private final int status;
     private final String code;
