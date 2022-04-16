@@ -4,6 +4,7 @@ import com.example.test.domain.user.dao.UserRepository;
 import com.example.test.domain.user.domain.User;
 import com.example.test.domain.user.dto.request.CreateUserRequest;
 import com.example.test.domain.user.dto.request.SigninRequest;
+import com.example.test.domain.user.exception.UserExistsException;
 import com.example.test.domain.user.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -19,6 +20,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String signup(CreateUserRequest request) {
+
+        User user = userRepository.findByAccountId(request.getAccountId())
+                .orElseThrow(() -> UserExistsException.EXCEPTION);
 
         userRepository.save(User.builder()
                 .accountId(request.getAccountId())
