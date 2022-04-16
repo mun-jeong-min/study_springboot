@@ -24,7 +24,6 @@ public class NoticeController {
         return noticeService.create(noticeRequest);
     }
 
-    @ResponseStatus(HttpStatus.FOUND)
     @GetMapping("/get")
     public List<Notice> read() {
 

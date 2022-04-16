@@ -4,6 +4,7 @@ import com.example.test.domain.notice.domain.Notice;
 import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
 import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
 import com.example.test.domain.notice.dao.NoticeRepository;
+import com.example.test.domain.notice.exception.NoticeNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -36,10 +37,11 @@ public class NoticeServicelmpl implements NoticeService {
     @Transactional
     @Override
     public String update(Long id, UpdateNoticeRequest request) {
-        Optional<Notice> notice = noticeRepository.findById(id);
+        Notice notice = noticeRepository.findNoticeById(id)
+                        .orElseThrow(() -> NoticeNotFoundException.EXCEPTION);
 
-        notice.get().setTitle(request.getTitle());
-        notice.get().setContent(request.getContent());
+        notice.setTitle(request.getTitle());
+        notice.setContent(request.getContent());
 
         return "update success";
     }
