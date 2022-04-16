@@ -4,6 +4,7 @@ import com.example.test.domain.notice.application.NoticeService;
 import com.example.test.domain.notice.domain.Notice;
 import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
 import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
+import com.example.test.domain.notice.dto.response.NoticeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -27,6 +28,11 @@ public class NoticeController {
     @GetMapping("/get")
     public List<Notice> read() {
         return noticeService.read();
+    }
+
+    @GetMapping("/getone")
+    public Notice readOne(@PathVariable("id") Long id) {
+        return noticeService.readOne(id);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)

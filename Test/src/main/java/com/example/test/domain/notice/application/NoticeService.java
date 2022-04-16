@@ -4,8 +4,10 @@ import com.example.test.domain.notice.dao.NoticeRepository;
 import com.example.test.domain.notice.domain.Notice;
 import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
 import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
+import com.example.test.domain.notice.dto.response.NoticeResponse;
 import com.example.test.domain.notice.exception.NoticeNotFoundException;
 import lombok.RequiredArgsConstructor;
+import org.aspectj.weaver.ast.Not;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +22,13 @@ public class NoticeService {
 
     public List<Notice> read() {
         return noticeRepository.findAll();
+    }
+
+    public Notice readOne(Long id) {
+        Notice notice = noticeRepository.findNoticeById(id)
+                .orElseThrow(() -> NoticeNotFoundException.EXCEPTION);
+
+        return notice;
     }
 
     public void create(CreateNoticeRequest request) {
