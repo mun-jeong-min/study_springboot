@@ -22,7 +22,8 @@ public class Notice {
     private String content;
 
     @Builder
-    public Notice (String title,String content){
+    public Notice (Long id, String title,String content){
+        this.id = id;
         this.title=title;
         this.content=content;
     }

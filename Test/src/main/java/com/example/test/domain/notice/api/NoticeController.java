@@ -1,10 +1,9 @@
 package com.example.test.domain.notice.api;
 
-import com.example.test.domain.notice.application.NoticeServicelmpl;
+import com.example.test.domain.notice.application.NoticeService;
 import com.example.test.domain.notice.domain.Notice;
 import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
 import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
-import com.example.test.domain.notice.dto.response.NoticeResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -17,12 +16,12 @@ import java.util.List;
 @RequestMapping("/crud")
 public class NoticeController {
 
-    private final NoticeServicelmpl noticeService;
+    private final NoticeService noticeService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/post")
-    public String create(@RequestBody @Valid CreateNoticeRequest noticeRequest) {
-        return noticeService.create(noticeRequest);
+    public void create(@RequestBody @Valid CreateNoticeRequest noticeRequest) {
+        noticeService.create(noticeRequest);
     }
 
     @GetMapping("/get")
@@ -32,13 +31,13 @@ public class NoticeController {
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/put/{id}")
-    public String update(@PathVariable("id") Long id, @RequestBody @Valid UpdateNoticeRequest request) {
-        return noticeService.update(id, request);
+    public void update(@PathVariable("id") Long id, @RequestBody @Valid UpdateNoticeRequest request) {
+        noticeService.update(id, request);
     }
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/delete/{i}")
-    public String delete(@PathVariable("i") Long id) {
-        return noticeService.delete(id);
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Long id) {
+        noticeService.delete(id);
     }
 }
