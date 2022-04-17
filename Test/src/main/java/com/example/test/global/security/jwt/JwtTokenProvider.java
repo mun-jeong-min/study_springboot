@@ -25,11 +25,11 @@ public class JwtTokenProvider {
     }
 
     //jwt 토큰 생성
-    public String generateToken(String id, String type, Long exp) {
+    private String generateToken(String id, String type, Long exp) {
         return Jwts.builder()
                 .signWith(SignatureAlgorithm.HS256, jwtproperties.getSecretKey())
                 .setSubject(id)
-                .claim("type", type)
+                .claim("typ", type)
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + exp * 1000))
                 .compact();

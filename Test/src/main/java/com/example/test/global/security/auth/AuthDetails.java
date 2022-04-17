@@ -1,32 +1,40 @@
 package com.example.test.global.security.auth;
 
+import com.example.test.domain.user.domain.User;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Collections;
+import java.util.List;
 
 @Getter
 @RequiredArgsConstructor
+@AllArgsConstructor
 public class AuthDetails implements UserDetails {
 
-    private final String accountId;
+    private User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Collections.emptyList();
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        authorities.add(new SimpleGrantedAuthority(user.getAuthority().name()));
+        return authorities;
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return user.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return this.accountId;
+        return user.getAccountId();
     }
 
     @Override
