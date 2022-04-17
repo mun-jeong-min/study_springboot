@@ -1,7 +1,7 @@
 package com.example.test.domain.notice.exception;
 
 import com.example.test.global.error.ErrorCode;
-import com.example.test.global.error.TestException;
+import com.example.test.global.error.exception.TestException;
 
 public class NoticeNotFoundException extends TestException {
 

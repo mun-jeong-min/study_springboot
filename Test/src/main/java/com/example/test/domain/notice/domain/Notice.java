@@ -1,14 +1,13 @@
 package com.example.test.domain.notice.domain;
 
+import com.example.test.domain.user.domain.User;
 import lombok.*;
 
 import javax.persistence.*;
 
-@Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-@Setter
-
+@Entity
 public class Notice {
 
     @Id
@@ -22,8 +21,7 @@ public class Notice {
     private String content;
 
     @Builder
-    public Notice (Long id, String title,String content){
-        this.id = id;
+    public Notice (String title,String content, User user) {
         this.title=title;
         this.content=content;
     }
