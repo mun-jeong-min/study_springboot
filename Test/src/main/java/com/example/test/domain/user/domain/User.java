@@ -8,7 +8,6 @@ import javax.validation.constraints.NotNull;
 
 @Entity
 @Getter
-@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
@@ -19,7 +18,7 @@ public class User {
     @Column(length = 14, nullable = false)
     private String accountId;
 
-    @Column(length = 20, nullable = false)
+    @Column(nullable = false)
     private String password;
 
     @NotNull
