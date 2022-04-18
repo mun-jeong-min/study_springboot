@@ -1,5 +1,9 @@
 package com.example.test.global.config;
 
+import com.example.test.global.enums.Authority;
+import com.example.test.global.error.ExceptionHandler;
+import com.example.test.global.security.jwt.JwtTokenFilter;
+import com.example.test.global.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -16,6 +20,8 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+    private final JwtTokenProvider jwtTokenProvider;
 
     @Bean
     public PasswordEncoder passwordEncoder() {
@@ -34,17 +40,17 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
 
-                .antMatchers(HttpMethod.POST, "/crud/post").permitAll()
-                .antMatchers(HttpMethod.GET, "/crud/get").permitAll()
-                .antMatchers(HttpMethod.PUT, "/crud/put/{id}").permitAll()
-                .antMatchers(HttpMethod.DELETE, "/crud/delete/{id}").permitAll()
+                .antMatchers(HttpMethod.POST, "/crud/post").authenticated()
+                .antMatchers(HttpMethod.GET, "/crud/get").authenticated()
+                .antMatchers(HttpMethod.PUT, "/crud/put/{id}").authenticated()
+                .antMatchers(HttpMethod.DELETE, "/crud/delete/{id}").authenticated()
 
                 .antMatchers(HttpMethod.POST, "/user/signup").permitAll()
                 .antMatchers(HttpMethod.POST, "/user/login").permitAll()
 
-                .anyRequest().authenticated();
+                .anyRequest().authenticated() // anymatchers에 적용되지 않은 모든 url
 
-        //.and()
-        //.apply(new FilterConfig(jwtTokenProvider));
+                .and()
+                .apply(new FilterConfig(jwtTokenProvider));
     }
 }
