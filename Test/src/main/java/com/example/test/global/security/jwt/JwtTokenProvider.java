@@ -1,5 +1,7 @@
 package com.example.test.global.security.jwt;
 
+import com.example.test.domain.auth.domain.RefreshToken;
+import com.example.test.domain.auth.domain.repository.RefreshTokenRepository;
 import com.example.test.global.security.auth.AuthDetailsService;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
@@ -19,9 +21,21 @@ public class JwtTokenProvider {
 
     private final Jwtproperties jwtproperties;
     private final AuthDetailsService authDetailsService;
+    private final RefreshTokenRepository refreshTokenRepository;
 
     public String generateAccessToken(String id) {
         return generateToken(id, "access", jwtproperties.getAccessExp());
+    }
+
+    public String generateRefreshToken(String id) {
+        String refreshToken = generateToken(id,"refresh", jwtproperties.getRefreshExp());
+        refreshTokenRepository.save(RefreshToken.builder()
+                .accountId(id)
+                .token(refreshToken)
+                .timeToLive(jwtproperties.getRefreshExp())
+                .build());
+
+        return refreshToken;
     }
 
     //jwt 토큰 생성
