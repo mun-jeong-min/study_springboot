@@ -1,4 +1,4 @@
-package com.example.test.domain.notice.dao;
+package com.example.test.domain.notice.domain.repository;
 
 import com.example.test.domain.notice.domain.Notice;
 import org.springframework.data.jpa.repository.JpaRepository;

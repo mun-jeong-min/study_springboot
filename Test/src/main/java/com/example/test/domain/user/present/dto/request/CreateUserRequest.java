@@ -1,13 +1,16 @@
-package com.example.test.domain.user.dto.request;
+package com.example.test.domain.user.present.dto.request;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
+@AllArgsConstructor
 @NoArgsConstructor
-public class SigninRequest {
+@Builder
+@Getter
+
+public class CreateUserRequest {
     private String accountId;
 
     private String password;

@@ -1,10 +1,10 @@
-package com.example.test.domain.user.application;
+package com.example.test.domain.user.service;
 
-import com.example.test.domain.user.dao.UserRepository;
+import com.example.test.domain.user.domain.repository.UserRepository;
 import com.example.test.domain.user.domain.User;
-import com.example.test.domain.user.dto.request.CreateUserRequest;
-import com.example.test.domain.user.dto.request.SigninRequest;
-import com.example.test.domain.user.dto.response.TokenResponse;
+import com.example.test.domain.user.present.dto.request.CreateUserRequest;
+import com.example.test.domain.user.present.dto.request.SigninRequest;
+import com.example.test.domain.user.present.dto.response.TokenResponse;
 import com.example.test.domain.user.exception.UserExistsException;
 import com.example.test.domain.user.exception.UserNotFoundException;
 import com.example.test.global.enums.Authority;

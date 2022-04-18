@@ -1,4 +1,4 @@
-package com.example.test.domain.notice.dto.request;
+package com.example.test.domain.notice.present.dto.request;
 
 import lombok.*;
 

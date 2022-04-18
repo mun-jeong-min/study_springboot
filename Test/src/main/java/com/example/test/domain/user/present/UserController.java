@@ -1,9 +1,9 @@
-package com.example.test.domain.user.api;
+package com.example.test.domain.user.present;
 
-import com.example.test.domain.user.application.UserServiceImpl;
-import com.example.test.domain.user.dto.request.CreateUserRequest;
-import com.example.test.domain.user.dto.request.SigninRequest;
-import com.example.test.domain.user.dto.response.TokenResponse;
+import com.example.test.domain.user.service.UserServiceImpl;
+import com.example.test.domain.user.present.dto.request.CreateUserRequest;
+import com.example.test.domain.user.present.dto.request.SigninRequest;
+import com.example.test.domain.user.present.dto.response.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

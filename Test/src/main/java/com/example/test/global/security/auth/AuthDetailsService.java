@@ -1,7 +1,6 @@
 package com.example.test.global.security.auth;
 
-import com.example.test.domain.user.dao.UserRepository;
-import com.example.test.domain.user.domain.User;
+import com.example.test.domain.user.domain.repository.UserRepository;
 import com.example.test.domain.user.exception.UserNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.core.userdetails.UserDetails;

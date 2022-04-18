@@ -1,10 +1,9 @@
-package com.example.test.domain.notice.api;
+package com.example.test.domain.notice.present;
 
-import com.example.test.domain.notice.application.NoticeService;
+import com.example.test.domain.notice.service.NoticeService;
 import com.example.test.domain.notice.domain.Notice;
-import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
-import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
-import com.example.test.domain.notice.dto.response.NoticeResponse;
+import com.example.test.domain.notice.present.dto.request.CreateNoticeRequest;
+import com.example.test.domain.notice.present.dto.request.UpdateNoticeRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

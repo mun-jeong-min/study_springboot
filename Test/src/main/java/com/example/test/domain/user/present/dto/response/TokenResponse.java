@@ -1,4 +1,4 @@
-package com.example.test.domain.user.dto.response;
+package com.example.test.domain.user.present.dto.response;
 
 import com.example.test.global.enums.Authority;
 import lombok.Builder;

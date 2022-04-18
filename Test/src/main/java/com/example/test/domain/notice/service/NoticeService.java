@@ -1,9 +1,9 @@
-package com.example.test.domain.notice.application;
+package com.example.test.domain.notice.service;
 
-import com.example.test.domain.notice.dao.NoticeRepository;
+import com.example.test.domain.notice.domain.repository.NoticeRepository;
 import com.example.test.domain.notice.domain.Notice;
-import com.example.test.domain.notice.dto.request.CreateNoticeRequest;
-import com.example.test.domain.notice.dto.request.UpdateNoticeRequest;
+import com.example.test.domain.notice.present.dto.request.CreateNoticeRequest;
+import com.example.test.domain.notice.present.dto.request.UpdateNoticeRequest;
 import com.example.test.domain.notice.exception.NoticeNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
