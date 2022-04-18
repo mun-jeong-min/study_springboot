@@ -9,6 +9,8 @@ import lombok.Getter;
 @JsonFormat(shape = JsonFormat.Shape.OBJECT)
 public enum ErrorCode {
 
+    PASSWORD_MISMATCH(401,"USER-401-1","PasswordNotFound"),
+
     USER_NOT_FOUND(404,"USER-404-1","UserNotFound"),
     NOTICE_NOT_FOUND(404,"NOTICE-404-1","NoticeNotFound"),
 

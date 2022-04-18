@@ -2,6 +2,7 @@ package com.example.test.domain.user.service;
 
 import com.example.test.domain.user.domain.repository.UserRepository;
 import com.example.test.domain.user.domain.User;
+import com.example.test.domain.user.exception.PasswordMismatchException;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
 import com.example.test.domain.user.present.dto.request.SigninRequest;
 import com.example.test.domain.user.present.dto.response.TokenResponse;
@@ -43,8 +44,9 @@ public class UserServiceImpl implements UserService {
         User user = userRepository.findByAccountId(request.getAccountId())
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
 
-        if (!passwordEncoder.matches(request.getPassword(), user.getPassword()))
-            throw new RuntimeException();
+        if (!passwordEncoder.matches(request.getPassword(), user.getPassword())) {
+            throw PasswordMismatchException.EXCEPTION;
+        }
 
         String access = jwtTokenProvider.generateAccessToken(request.getAccountId());
         String refresh = jwtTokenProvider.generateRefreshToken(request.getAccountId());
