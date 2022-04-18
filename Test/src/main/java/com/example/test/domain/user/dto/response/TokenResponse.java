@@ -1,10 +1,14 @@
 package com.example.test.domain.user.dto.response;
 
+import com.example.test.global.enums.Authority;
 import lombok.Builder;
 import lombok.Getter;
 
 @Getter
 @Builder
 public class TokenResponse {
-    private String accessToken;
+
+    private final String accessToken;
+    private final String refreshToken;
+    private final Authority authority;
 }
