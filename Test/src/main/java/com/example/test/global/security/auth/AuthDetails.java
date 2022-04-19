@@ -14,10 +14,9 @@ import java.util.List;
 
 @Getter
 @RequiredArgsConstructor
-@AllArgsConstructor
 public class AuthDetails implements UserDetails {
 
-    private User user;
+    private final User user;
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
@@ -29,7 +28,7 @@ public class AuthDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPassword();
+        return null;
     }
 
     @Override

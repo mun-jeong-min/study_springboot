@@ -29,7 +29,7 @@ public class NoticeController {
         return noticeService.read();
     }
 
-    @GetMapping("/getone")
+    @GetMapping("/getOne/{id}")
     public Notice readOne(@PathVariable("id") Long id) {
         return noticeService.readOne(id);
     }

@@ -29,6 +29,7 @@ public class JwtTokenProvider {
 
     public String generateRefreshToken(String id) {
         String refreshToken = generateToken(id,"refresh", jwtproperties.getRefreshExp());
+
         refreshTokenRepository.save(RefreshToken.builder()
                 .accountId(id)
                 .token(refreshToken)
