@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url:  ${DB_URL} #jdbc:mysql://mysql-test:3306/springtest?serverTimezone=UTC&characterEncoding=UTF-8
-    username: ${DB_USERNAME}
-    password: ${DB_PWD}
+    url:  ${DB_URL:jdbc:mysql://localhost:3306/springtest?serverTimezone=UTC&characterEncoding=UTF-8} #jdbc:mysql://mysql-test:3306/springtest?serverTimezone=UTC&characterEncoding=UTF-8
+    username: ${DB_USERNAME:root}
+    password: ${DB_PWD:0319}
     driver-class-name: com.mysql.cj.jdbc.Driver
   jpa:
     database: mysql
@@ -15,8 +15,8 @@ spring:
 
 
 jwt:
-  secretKey: ${JWT_SECRET}
-  accessExp: ${JWT_ACCESS_EXP}
-  refreshExp: ${JWT_REFRESH_EXP}
+  secretKey: ${JWT_SECRET:adssdddassd}
+  accessExp: ${JWT_ACCESS_EXP:18000}
+  refreshExp: ${JWT_REFRESH_EXP:6040800}
   header: ${JWT_HEADER:Authorization}
-  prefix: ${JWT_PREFIX}
+  prefix: ${JWT_PREFIX:Bearer}
