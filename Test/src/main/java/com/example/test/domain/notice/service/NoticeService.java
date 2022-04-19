@@ -42,12 +42,15 @@ public class NoticeService {
         Notice notice = noticeRepository.findNoticeById(id)
                 .orElseThrow(() -> NoticeNotFoundException.EXCEPTION);
 
+        notice.updateNotice(request.getTitle(), request.getContent());
+        /*
         noticeRepository.save(
                 Notice.builder()
                         .title(request.getTitle())
                         .content(request.getContent())
                         .build()
         );
+        */
     }
 
     public void delete(Long id) {

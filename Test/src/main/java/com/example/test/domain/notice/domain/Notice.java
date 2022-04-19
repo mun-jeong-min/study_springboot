@@ -8,6 +8,7 @@ import javax.persistence.*;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @Entity
+@Cacheable
 public class Notice {
 
     @Id
@@ -24,5 +25,10 @@ public class Notice {
     public Notice (String title,String content, User user) {
         this.title=title;
         this.content=content;
+    }
+
+    public void updateNotice(String title, String content) {
+        this.title = title;
+        this.content = content;
     }
 }
