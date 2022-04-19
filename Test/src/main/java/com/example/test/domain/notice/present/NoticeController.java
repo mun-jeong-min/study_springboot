@@ -20,7 +20,7 @@ public class NoticeController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/post")
-    public void create(@RequestBody @Valid CreateNoticeRequest noticeRequest) {
+    public void create(@RequestBody CreateNoticeRequest noticeRequest) {
         noticeService.create(noticeRequest);
     }
 

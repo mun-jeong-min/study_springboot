@@ -1,8 +1,8 @@
 package com.example.test.domain.user.present;
 
-import com.example.test.domain.user.service.UserServiceImpl;
+import com.example.test.domain.user.service.UserService;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
-import com.example.test.domain.user.present.dto.request.SigninRequest;
+import com.example.test.domain.user.present.dto.request.SignInRequest;
 import com.example.test.domain.user.present.dto.response.TokenResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -15,7 +15,7 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
@@ -24,7 +24,7 @@ public class UserController {
     }
 
     @PostMapping("/login")
-    public TokenResponse login(@RequestBody @Valid SigninRequest request) {
+    public TokenResponse login(@RequestBody @Valid SignInRequest request) {
         return userService.login(request);
     }
 }

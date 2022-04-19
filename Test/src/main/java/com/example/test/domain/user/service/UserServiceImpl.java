@@ -4,7 +4,7 @@ import com.example.test.domain.user.domain.repository.UserRepository;
 import com.example.test.domain.user.domain.User;
 import com.example.test.domain.user.exception.PasswordMismatchException;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
-import com.example.test.domain.user.present.dto.request.SigninRequest;
+import com.example.test.domain.user.present.dto.request.SignInRequest;
 import com.example.test.domain.user.present.dto.response.TokenResponse;
 import com.example.test.domain.user.exception.UserExistsException;
 import com.example.test.domain.user.exception.UserNotFoundException;
@@ -25,9 +25,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public String signup(CreateUserRequest request) {
-
-        if (userRepository.findByAccountId(request.getAccountId()).isPresent())
+        if (userRepository.findByAccountId(request.getAccountId()).isPresent()) {
             throw UserExistsException.EXCEPTION;
+        }
 
         userRepository.save(User.builder()
                 .accountId(request.getAccountId())
@@ -40,7 +40,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     @Transactional(readOnly = true)
-    public TokenResponse login(SigninRequest request) {
+    public TokenResponse login(SignInRequest request) {
         User user = userRepository.findByAccountId(request.getAccountId())
                 .orElseThrow(() -> UserNotFoundException.EXCEPTION);
 

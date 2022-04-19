@@ -23,10 +23,8 @@ public class NoticeService {
     }
 
     public Notice readOne(Long id) {
-        Notice notice = noticeRepository.findNoticeById(id)
+        return noticeRepository.findNoticeById(id)
                 .orElseThrow(() -> NoticeNotFoundException.EXCEPTION);
-
-        return notice;
     }
 
     public void create(CreateNoticeRequest request) {
@@ -43,16 +41,9 @@ public class NoticeService {
                 .orElseThrow(() -> NoticeNotFoundException.EXCEPTION);
 
         notice.updateNotice(request.getTitle(), request.getContent());
-        /*
-        noticeRepository.save(
-                Notice.builder()
-                        .title(request.getTitle())
-                        .content(request.getContent())
-                        .build()
-        );
-        */
     }
 
+    @Transactional
     public void delete(Long id) {
         noticeRepository.deleteById(id);
     }
