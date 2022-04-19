@@ -1,4 +1,4 @@
-package com.example.test.global.error;
+package com.example.test.global.error.exception;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;

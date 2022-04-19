@@ -5,5 +5,5 @@ import lombok.Getter;
 @Getter
 public enum Authority {
     USER,
-    TEACHER
+    ADMIN
 }

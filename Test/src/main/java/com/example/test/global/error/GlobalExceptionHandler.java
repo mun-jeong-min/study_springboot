@@ -1,5 +1,6 @@
 package com.example.test.global.error;
 
+import com.example.test.global.error.exception.ErrorCode;
 import com.example.test.global.error.exception.TestException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
