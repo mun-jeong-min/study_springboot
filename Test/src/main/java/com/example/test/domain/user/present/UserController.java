@@ -1,5 +1,6 @@
 package com.example.test.domain.user.present;
 
+import com.example.test.domain.user.present.dto.request.UpdatePasswordRequest;
 import com.example.test.domain.user.service.UserService;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
 import com.example.test.domain.user.present.dto.request.SignInRequest;
@@ -20,11 +21,16 @@ public class UserController {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
     public String signup(@RequestBody @Valid CreateUserRequest request) {
-        return userService.signup(request);
+        return userService.signup(request);`1
     }
 
     @PostMapping("/login")
     public TokenResponse login(@RequestBody @Valid SignInRequest request) {
         return userService.login(request);
+    }
+
+    @PutMapping("/pwd")
+    public void updatePassword(@RequestBody UpdatePasswordRequest request) {
+        userService.updatePassword(request);
     }
 }
