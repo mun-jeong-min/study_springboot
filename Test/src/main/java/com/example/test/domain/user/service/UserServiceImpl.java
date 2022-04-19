@@ -5,6 +5,7 @@ import com.example.test.domain.user.domain.User;
 import com.example.test.domain.user.exception.PasswordMismatchException;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
 import com.example.test.domain.user.present.dto.request.SignInRequest;
+import com.example.test.domain.user.present.dto.request.UpdatePasswordRequest;
 import com.example.test.domain.user.present.dto.response.TokenResponse;
 import com.example.test.domain.user.exception.UserExistsException;
 import com.example.test.domain.user.exception.UserNotFoundException;
@@ -56,5 +57,18 @@ public class UserServiceImpl implements UserService {
                 .refreshToken(refresh)
                 .authority(user.getAuthority())
                 .build();
+    }
+
+    @Override
+    @Transactional
+    public void updatePassword(UpdatePasswordRequest request) {
+        User user = userRepository.findByAccountId(request.getAccountId())
+                .orElseThrow(() -> UserNotFoundException.EXCEPTION);
+
+        if (!equals(passwordEncoder.matches(request.getPassword(), user.getPassword()))) {
+            throw PasswordMismatchException.EXCEPTION;
+        }
+
+        user.updatePassword(request.getPassword());
     }
 }

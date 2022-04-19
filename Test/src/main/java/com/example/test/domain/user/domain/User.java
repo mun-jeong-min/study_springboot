@@ -1,7 +1,10 @@
 package com.example.test.domain.user.domain;
 
 import com.example.test.global.enums.Authority;
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
@@ -26,9 +29,14 @@ public class User {
     private Authority authority;
 
     @Builder
-    public User(String accountId, String password,Authority authority) {
+    public User(String accountId, String password, Authority authority) {
         this.accountId = accountId;
         this.password = password;
-        this.authority=authority;
+        this.authority = authority;
+    }
+
+    public void updatePassword(String password) {
+        this.accountId = accountId;
+        this.password = password;
     }
 }
