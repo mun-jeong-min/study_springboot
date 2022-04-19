@@ -1,8 +1,5 @@
 package com.example.test.global.config;
 
-import com.example.test.global.enums.Authority;
-import com.example.test.global.error.ExceptionHandler;
-import com.example.test.global.security.jwt.JwtTokenFilter;
 import com.example.test.global.security.jwt.JwtTokenProvider;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
@@ -40,15 +37,15 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
 
-                .antMatchers(HttpMethod.POST, "/crud/post").authenticated()
-                .antMatchers(HttpMethod.GET, "/crud/get").hasRole("USER")
-                .antMatchers(HttpMethod.PUT, "/crud/put/{id}").authenticated()
-                .antMatchers(HttpMethod.DELETE, "/crud/delete/{id}").hasRole("USER")
+                .antMatchers(HttpMethod.POST, "/crud/post").hasAuthority("USER")
+                .antMatchers(HttpMethod.GET, "/crud/get").hasAnyRole("USER")
+                .antMatchers(HttpMethod.PUT, "/crud/put/{id}").hasAnyRole("USER")
+                .antMatchers(HttpMethod.DELETE, "/crud/delete/{id}").hasAnyRole("USER")
 
                 .antMatchers(HttpMethod.POST, "/user/signup").permitAll()
                 .antMatchers(HttpMethod.POST, "/user/login").permitAll()
 
-                .anyRequest().authenticated() // anymatchers에 적용되지 않은 모든 url
+                .anyRequest().authenticated()
 
                 .and()
                 .apply(new FilterConfig(jwtTokenProvider));
