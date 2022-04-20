@@ -10,4 +10,5 @@ public class CreateUserRequest {
     private String accountId;
 
     private String password;
+    private String username;
 }

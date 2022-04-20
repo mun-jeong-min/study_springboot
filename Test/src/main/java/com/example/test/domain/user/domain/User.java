@@ -28,11 +28,18 @@ public class User {
     @Enumerated(EnumType.STRING)
     private Authority authority;
 
+    @Column
+    private String username;
+
+    @Column
+    private String File;
+
     @Builder
-    public User(String accountId, String password, Authority authority) {
+    public User(String accountId, String password, Authority authority, String username) {
         this.accountId = accountId;
         this.password = password;
         this.authority = authority;
+        this.username = username;
     }
 
     public void updatePassword(String password) {
