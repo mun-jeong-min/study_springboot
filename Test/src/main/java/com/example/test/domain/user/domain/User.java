@@ -36,7 +36,6 @@ public class User {
     }
 
     public void updatePassword(String password) {
-        this.accountId = accountId;
         this.password = password;
     }
 }
