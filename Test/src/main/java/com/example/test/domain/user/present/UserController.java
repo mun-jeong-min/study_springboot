@@ -1,6 +1,7 @@
 package com.example.test.domain.user.present;
 
 import com.example.test.domain.user.present.dto.request.UpdatePasswordRequest;
+import com.example.test.domain.user.present.dto.response.ProfileResponse;
 import com.example.test.domain.user.service.UserService;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
 import com.example.test.domain.user.present.dto.request.SignInRequest;
@@ -32,5 +33,10 @@ public class UserController {
     @PutMapping("/pwd")
     public void updatePassword(@RequestBody UpdatePasswordRequest request) {
         userService.updatePassword(request);
+    }
+
+    @GetMapping("/profile")
+    public ProfileResponse userProfile() {
+        return userService.userProfile();
     }
 }
