@@ -5,9 +5,12 @@ import com.example.test.domain.user.domain.repository.UserRepository;
 import com.example.test.domain.user.exception.PasswordMismatchException;
 import com.example.test.domain.user.exception.UserExistsException;
 import com.example.test.domain.user.exception.UserNotFoundException;
+import com.example.test.domain.user.facade.UserFacade;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
 import com.example.test.domain.user.present.dto.request.SignInRequest;
 import com.example.test.domain.user.present.dto.request.UpdatePasswordRequest;
+import com.example.test.domain.user.present.dto.request.UserProfileRequest;
+import com.example.test.domain.user.present.dto.response.ProfileResponse;
 import com.example.test.domain.user.present.dto.response.TokenResponse;
 import com.example.test.global.enums.Authority;
 import com.example.test.global.security.jwt.JwtTokenProvider;
@@ -23,6 +26,7 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtTokenProvider jwtTokenProvider;
+    private final UserFacade userFacade;
 
     @Override
     public String signup(CreateUserRequest request) {
@@ -34,6 +38,7 @@ public class UserServiceImpl implements UserService {
                 .accountId(request.getAccountId())
                 .password(passwordEncoder.encode(request.getPassword()))
                 .authority(Authority.USER)
+                .username(request.getUsername())
                 .build());
 
         return "create success!!!";
@@ -70,5 +75,14 @@ public class UserServiceImpl implements UserService {
         }
 
         user.updatePassword(passwordEncoder.encode(request.getPassword()));
+    }
+
+    @Override
+    public ProfileResponse userProfile() {
+        User user = userFacade.getCurrentUser();
+
+        return ProfileResponse.builder()
+                .username(user.getUsername())
+                .build();
     }
 }
