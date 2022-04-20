@@ -10,6 +10,7 @@ import lombok.Getter;
 public enum ErrorCode {
 
     PASSWORD_MISMATCH(401,"USER-401-1","PasswordNotFound"),
+    CREDENTIALS_NOT_FOUND(401,"GLOBAL-401-1", "Credentials not found"),
 
     USER_NOT_FOUND(404,"USER-404-1","UserNotFound"),
     NOTICE_NOT_FOUND(404,"NOTICE-404-1","NoticeNotFound"),
