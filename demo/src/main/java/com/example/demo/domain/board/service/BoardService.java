@@ -7,4 +7,6 @@ public interface BoardService {
     void boardCreate(BoardCreateRequest request);
 
     void boardUpdate(BoardUpdateRequest request, Long id);
+
+    void boardDelete(Long id);
 }

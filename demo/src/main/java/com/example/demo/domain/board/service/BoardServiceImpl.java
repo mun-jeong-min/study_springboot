@@ -28,10 +28,18 @@ public class BoardServiceImpl implements BoardService{
 
     @Override
     @Transactional
-    public void boardUpdate(BoardUpdateRequest request, Long id) 
+    public void boardUpdate(BoardUpdateRequest request, Long id) {
         Board board = boardRepository.findBoardById(id)
                 .orElseThrow(() -> BoardNotFoundException.EXCEPTION);
 
         board.updateBoard(request.getTitle(), request.getDescription(), request.getSubTitle());
     }
+
+    @Override
+    @Transactional
+    public void boardDelete(Long id) {
+        boardRepository.deleteById(id);
+    }
+
+
 }
