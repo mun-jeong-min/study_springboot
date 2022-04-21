@@ -1,7 +1,7 @@
 package com.example.demo.board.present;
 
 import com.example.demo.board.present.dto.request.BoardCreateRequest;
-import com.example.demo.board.service.BoardService;
+import com.example.demo.board.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/board")
 public class BoardController {
 
-    private final BoardService boardService;
+    private final BoardServiceImpl boardService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/create")
