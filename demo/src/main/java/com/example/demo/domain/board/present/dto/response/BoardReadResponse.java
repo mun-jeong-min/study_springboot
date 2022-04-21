@@ -1,4 +1,4 @@
-package com.example.demo.board.present.dto.response;
+package com.example.demo.domain.board.present.dto.response;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -10,5 +10,5 @@ public class BoardReadResponse {
     private final Long id;
     private final String title;
     private final String description;
-    private final String subtitle;
+    private final String subTitle;
 }
