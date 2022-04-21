@@ -1,6 +1,7 @@
 package com.example.demo.board.domain;
 
 import lombok.AccessLevel;
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,6 +13,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @EntityListeners(AuditingEntityListener.class)
+@Entity
 public class Board {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
