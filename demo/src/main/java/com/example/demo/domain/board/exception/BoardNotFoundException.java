@@ -1,4 +1,4 @@
-package com.example.demo.board.exception;
+package com.example.demo.domain.board.exception;
 
 import com.example.demo.global.error.exception.DemoException;
 import com.example.demo.global.error.exception.ErrorCode;

@@ -1,6 +1,6 @@
-package com.example.demo.board.domain.repository;
+package com.example.demo.domain.board.domain.repository;
 
-import com.example.demo.board.domain.Board;
+import com.example.demo.domain.board.domain.Board;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.Optional;

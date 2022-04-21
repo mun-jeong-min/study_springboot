@@ -1,4 +1,4 @@
-package com.example.demo.board.present.dto.request;
+package com.example.demo.domain.board.present.dto.request;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,5 +18,5 @@ public class BoardCreateRequest {
     private String description;
 
     @Size(min = 0, max = 15, message = "subtitle은 15글자 이상을 허용하지 않음")
-    private String subtitle;
+    private String subTitle;
 }

@@ -1,4 +1,4 @@
-package com.example.demo.board.domain;
+package com.example.demo.domain.board.domain;
 
 import com.example.demo.global.entity.BaseTimeEntity;
 import lombok.AccessLevel;
@@ -30,6 +30,12 @@ public class Board extends BaseTimeEntity {
 
     @Builder
     public Board(String title, String description, String subTitle) {
+        this.title = title;
+        this.description = description;
+        this.subTitle = subTitle;
+    }
+
+    public void updateBoard(String title, String description, String subTitle) {
         this.title = title;
         this.description = description;
         this.subTitle = subTitle;

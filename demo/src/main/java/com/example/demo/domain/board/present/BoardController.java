@@ -1,7 +1,7 @@
-package com.example.demo.board.present;
+package com.example.demo.domain.board.present;
 
-import com.example.demo.board.present.dto.request.BoardCreateRequest;
-import com.example.demo.board.service.BoardServiceImpl;
+import com.example.demo.domain.board.present.dto.request.BoardCreateRequest;
+import com.example.demo.domain.board.service.BoardServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
