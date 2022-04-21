@@ -6,6 +6,7 @@ import com.example.test.domain.user.service.UserService;
 import com.example.test.domain.user.present.dto.request.CreateUserRequest;
 import com.example.test.domain.user.present.dto.request.SignInRequest;
 import com.example.test.domain.user.present.dto.response.TokenResponse;
+import com.example.test.domain.user.service.UserServiceImpl;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ import javax.validation.Valid;
 @RequestMapping("/user")
 public class UserController {
 
-    private final UserService userService;
+    private final UserServiceImpl userService;
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/signup")
