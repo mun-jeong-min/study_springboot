@@ -1,14 +1,23 @@
 package com.example.demo.domain.board.present.dto.response;
 
+import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 
+import java.util.List;
+
 @Getter
-@Builder
+@AllArgsConstructor
 public class BoardReadResponse {
 
-    private final Long id;
-    private final String title;
-    private final String description;
-    private final String subTitle;
+    private final List<BoardResponse> boardList;
+
+    @Getter
+    @Builder
+    public static class BoardResponse {
+
+        private final String title;
+        private final String description;
+        private final String subTitle;
+    }
 }
