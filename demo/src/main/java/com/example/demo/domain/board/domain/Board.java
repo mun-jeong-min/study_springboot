@@ -18,14 +18,14 @@ public class Board extends BaseTimeEntity {
     private Long id;
 
     @NotNull
-    @Column(length = 20)
+    @Column(length = 20, nullable = false)
     private String title;
 
     @NotNull
-    @Column(length = 3000)
+    @Column(length = 3000, nullable = false)
     private String description;
 
-    @Column(length = 15)
+    @Column(length = 15, nullable = true)
     private String subTitle;
 
     @Builder
