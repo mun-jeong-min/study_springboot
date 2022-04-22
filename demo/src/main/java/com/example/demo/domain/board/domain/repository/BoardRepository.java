@@ -7,4 +7,5 @@ import java.util.Optional;
 
 public interface BoardRepository extends CrudRepository<Board, Long> {
     Optional<Board> findBoardById(Long id);
+    Optional<Board> findAllById(Long id);
 }

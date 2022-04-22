@@ -5,15 +5,42 @@ import com.example.demo.domain.board.domain.repository.BoardRepository;
 import com.example.demo.domain.board.exception.BoardNotFoundException;
 import com.example.demo.domain.board.present.dto.request.BoardCreateRequest;
 import com.example.demo.domain.board.present.dto.request.BoardUpdateRequest;
+import com.example.demo.domain.board.present.dto.response.BoardReadResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+import static com.example.demo.domain.board.present.dto.response.BoardReadResponse.*;
+
 @Service
 @RequiredArgsConstructor
-public class BoardServiceImpl implements BoardService{
+public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
+
+    /*
+    @Override
+    public BoardReadResponse boardRead(Long id) {
+        List<BoardResponse> boardReadList = boardRepository.findAllById(id)
+                .stream()
+                .map(board -> BoardResponse.builder()
+                        .title(board.getTitle())
+                        .description(board.getDescription())
+                        .subTitle(board.getSubTitle())
+                        .build())
+                .collect(Collectors.toList());
+
+        return new BoardReadResponse(boardReadList);
+    }
+    */
+
+    @Override
+    public List<Board> boardAll() {
+        return (List<Board>) boardRepository.findAll();
+    }
 
     @Override
     public void boardCreate(BoardCreateRequest request) {
@@ -40,6 +67,4 @@ public class BoardServiceImpl implements BoardService{
     public void boardDelete(Long id) {
         boardRepository.deleteById(id);
     }
-
-
 }
