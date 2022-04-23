@@ -5,15 +5,12 @@ import com.example.demo.domain.board.domain.repository.BoardRepository;
 import com.example.demo.domain.board.exception.BoardNotFoundException;
 import com.example.demo.domain.board.present.dto.request.BoardCreateRequest;
 import com.example.demo.domain.board.present.dto.request.BoardUpdateRequest;
-import com.example.demo.domain.board.present.dto.response.BoardReadResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
-import java.util.stream.Collectors;
-
-import static com.example.demo.domain.board.present.dto.response.BoardReadResponse.*;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -66,5 +63,10 @@ public class BoardServiceImpl implements BoardService {
     @Transactional
     public void boardDelete(Long id) {
         boardRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Board> boardReadOne(Long id) {
+        return boardRepository.findBoardById(id);
     }
 }
