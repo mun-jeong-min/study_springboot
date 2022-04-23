@@ -11,7 +11,7 @@ import java.util.List;
 public class BoardReadResponse {
 
     private final List<BoardResponse> boardList;
-
+    
     @Getter
     @Builder
     public static class BoardResponse {
