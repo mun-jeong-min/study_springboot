@@ -38,6 +38,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.PUT, "/board/update/{id}").permitAll()
                 .antMatchers(HttpMethod.DELETE, "/board/delete/{id}").permitAll()
                 .antMatchers(HttpMethod.GET, "/board/read").permitAll()
+                .antMatchers(HttpMethod.GET, "/board/read/{id}").permitAll()
 
                 .anyRequest().authenticated();
 
