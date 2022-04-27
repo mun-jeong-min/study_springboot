@@ -5,12 +5,14 @@ import com.example.demo.domain.board.domain.repository.BoardRepository;
 import com.example.demo.domain.board.exception.BoardNotFoundException;
 import com.example.demo.domain.board.present.dto.request.BoardCreateRequest;
 import com.example.demo.domain.board.present.dto.request.BoardUpdateRequest;
+import com.example.demo.domain.board.present.dto.response.BoardReadResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -18,12 +20,13 @@ public class BoardServiceImpl implements BoardService {
 
     private final BoardRepository boardRepository;
 
-    /*
     @Override
     public BoardReadResponse boardRead(Long id) {
-        List<BoardResponse> boardReadList = boardRepository.findAllById(id)
+
+        List<BoardReadResponse.BoardResponse> boardReadList = boardRepository.findBoardById(id)
                 .stream()
-                .map(board -> BoardResponse.builder()
+                .map(board -> BoardReadResponse.BoardResponse
+                        .builder()
                         .title(board.getTitle())
                         .description(board.getDescription())
                         .subTitle(board.getSubTitle())
@@ -32,7 +35,6 @@ public class BoardServiceImpl implements BoardService {
 
         return new BoardReadResponse(boardReadList);
     }
-    */
 
     @Override
     public List<Board> boardAll() {
