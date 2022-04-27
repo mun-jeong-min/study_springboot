@@ -10,8 +10,8 @@ import java.util.List;
 @AllArgsConstructor
 public class BoardReadResponse {
 
-    private final List<BoardResponse> boardList;
-    
+    private List<BoardResponse> boardList;
+
     @Getter
     @Builder
     public static class BoardResponse {
